@@ -1,0 +1,20 @@
+@import "variables.scss";
+
+.exercise-2 {
+    .box {
+        color: $color-variant-2;
+        font-family: $font-familiy-variation-2;
+        border-radius: $border-radius-variation-2;
+        box-shadow: $box-shadow-variation-2;
+    }
+
+    .box:first-child {
+        background-color: $bg-color-base-2;
+    }
+    .box:nth-child(2) {
+        background-color: $bg-color-important-2;
+    }
+    .box:last-child {
+        background-color: $bg-color-main-2;
+    }
+}

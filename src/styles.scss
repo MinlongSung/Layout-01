@@ -1,0 +1,271 @@
+@use "sass:map";
+@import "variables.scss";
+
+$box-data: (
+    1: (
+        "bg-color": $gradient-bg-color-1,
+        "color": $gradient-color-base,
+        "darken-color": $gradient-color-variation,
+        "lighten-color": $gradient-color-variation,
+        "gradientn-n-variations": $gradient-n-variations,
+        "gradient-pc-multiplier": $gradient-pc-multiplier
+    ), 
+    2: (
+        "bg-color": $gradient-bg-color-2,
+        "color": $gradient-color-base,
+        "darken-color": $gradient-color-variation,
+        "lighten-color": $gradient-color-variation,
+        "gradientn-n-variations": $gradient-n-variations,
+        "gradient-pc-multiplier": $gradient-pc-multiplier
+    ), 
+    3: (
+        "bg-color": $gradient-bg-color-3,
+        "color": $gradient-color-base,
+        "darken-color": $gradient-color-variation,
+        "lighten-color": $gradient-color-variation,
+        "gradientn-n-variations": $gradient-n-variations,
+        "gradient-pc-multiplier": $gradient-pc-multiplier
+    )
+);
+
+body {
+    height: 100vh;
+    font-family: $default-font-family;
+}
+
+[class^=exercise] { // starts with "exercise"
+    padding: 10px;
+
+    h1 {
+        padding-bottom: 20px;
+    }
+}
+
+
+.exercise-1 {
+    // Classes for extend
+    .default-container {
+        height: 90px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px;
+    }
+    .default-box {
+        flex: 1 0 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    
+    // overwrite basis to make base div wider
+    .box[class*="base-color"] {
+        flex-basis: 85px;
+    }
+
+    @mixin box-colors($bg-color, $color) {
+        background-color: $bg-color;
+        color: $color;
+    }
+    
+    // Build especific classes for the containers and boxes
+    // To increase variations, play with $box-data parameters
+    @each $key, $value in $box-data {
+        $box-bg-color: map.get($value, 'bg-color');
+        $box-color: map.get($value, 'color');
+        $box-darken-color: map.get($value, 'darken-color');
+        $box-lighten-color: map.get($value, 'lighten-color');
+        $box-gradient-variations: map.get($value, 'gradientn-n-variations');
+        $box-gradient-pc-multiplier: map.get($value, 'gradient-pc-multiplier');
+    
+        .container-#{$key} {
+            @extend .default-container;
+    
+            .box {
+                @extend .default-box;
+                @include box-colors($box-bg-color, $box-color);
+            }
+
+            @for $j from 1 through $box-gradient-variations {
+                $pc-variation: $j * $box-gradient-pc-multiplier;
+                .darken-#{$j} {
+                    @include box-colors(darken($box-bg-color, $pc-variation), darken($box-darken-color, $pc-variation));
+                }
+                .lighten-#{$j} {
+                    @include box-colors(lighten($box-bg-color, $pc-variation), lighten($box-lighten-color, $pc-variation));
+                }
+            }
+        }
+    }
+}
+
+.exercise-2 {
+    .container {
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .box {
+        flex: 1 0 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+}
+
+.exercise-3 {
+    nav {
+        background-color: $nav-bg-color;
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    li {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    li:hover {
+        background-color: $nav-bg-color-hover;
+    }
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        text-decoration: none;
+        color: $nav-color-hover;
+    } 
+}
+
+.exercise-4 {
+    .card {
+        display: grid;
+        height: $card-height;
+        min-width: $card-min-width;
+        max-width: $card-max-width;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(auto, 200px) 70px 1fr 60px 70px;
+        border: $card-border;
+        font-family: $card-font-family;
+    }
+
+    header {
+        grid-row: 1;
+        grid-column: 1;
+
+    }        
+    
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: fill;
+    }
+        
+    h2 {
+        grid-row: 2;
+        grid-column: 1;
+        padding: 10px 15px;
+        font-size: $card-title-font-size;
+        line-height: $card-title-line-height;
+    }
+
+    main {
+        grid-row: 3;
+        grid-column: 1;
+        padding: 5px 15px;
+        font-size: $card-body-font-size;
+        overflow-y: scroll;
+        text-overflow: ellipsis;
+        white-space: pre-line;
+    }
+
+    main::-webkit-scrollbar { // related to the background of the scrollable part
+        width: 5px;
+    }
+
+    main::-webkit-scrollbar-thumb { // scrollable part
+        background-color: $card-scroll-color;
+        border-radius: 20px;
+    }
+    
+    .card-date-published {
+        grid-row: 4;
+        grid-column: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 5px;
+        padding: 10px 15px;
+    }
+
+    b {
+        font-weight: bold;
+    }
+
+    span {
+        color: $card-color-date;
+    }
+
+    footer {      
+        grid-row: 5;
+        grid-column: 1;
+        display: flex;
+        padding: 10px 15px;  
+    }
+
+    button {
+        flex-grow: 1;
+        border: unset;
+        background-color: $card-button-bg-color;
+        color: $card-button-color;
+        font-size: $card-button-font-size;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .exercise-1 {
+        .default-container {
+            display: inline-flex;
+            flex-direction: column;
+            height: auto;
+        }
+
+        .default-box {
+            flex-basis: 30px;
+        }
+
+        .box[class*="base-color"] {
+            flex-basis: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .exercise-3 {          
+        ul {
+            flex-direction: column;
+        }
+        
+        a {
+            flex-grow: 1;
+        }
+    }
+
+    .exercise-4 {
+        .card {
+            grid-template-rows: auto 70px 1fr 60px 70px;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+$default-font-family: Arial, Helvetica, sans-serif;
+// Exercise 1
+$gradient-n-variations: 4;
+$gradient-pc-multiplier: 5%;
+
+$gradient-bg-color-1: #fa8072;
+$gradient-bg-color-2: #667eea;
+$gradient-bg-color-3: #77ff75;
+
+$gradient-color-base: #fff;
+$gradient-color-variation: #d3d3d3;
+
+// Exercise 2
+$bg-color-base-1: #ff0000;
+$bg-color-important-1: #800000;
+$bg-color-main-1: #fa8072;
+$font-familiy-variation-1: Verdana, Geneva, Tahoma, sans-serif;
+$box-shadow-variation-1: -7px 5px 10px 1px;
+
+$bg-color-base-2: #0000ff;
+$bg-color-important-2: #020281;
+$bg-color-main-2: #20b2aa;
+$color-variant-2: #fff;
+$font-familiy-variation-2: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+$border-radius-variation-2: 5px;
+$box-shadow-variation-2: 7px 5px 10px 1px #000;
+
+// Exercise 3
+$nav-bg-color: #128291;
+$nav-bg-color-hover: #094f58;
+$nav-color-hover: #fff;
+
+// Exercise 4
+$card-height: 550px;
+$card-min-width: 200px;
+$card-max-width: 325px;
+$card-border: 1px solid #0000004d;
+$card-title-font-size: 1.5em;
+$card-title-line-height: 2.5em;
+$card-font-family: $default-font-family;
+$card-body-font-size: 0.8em;
+$card-scroll-color: #d3d3d3;
+$card-color-date: #5ed371;
+$card-button-bg-color: #5ed371;
+$card-button-color: #fff;
+$card-button-font-size: 1.05em;
