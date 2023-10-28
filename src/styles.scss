@@ -1,5 +1,7 @@
 @use "sass:map";
 @import "variables.scss";
+@import "themes-1.scss";
+// @import "themes-2.scss";
 
 $box-data: (
     1: (
@@ -115,6 +117,20 @@ body {
         justify-content: center;
         align-items: center;
         border: 1px solid rgba(0, 0, 0, 0.3);
+        color: $color-variant;
+        font-family: $font-familiy-variation;
+        border-radius: $border-radius-variation;
+        box-shadow: $box-shadow-variation;
+    }
+    
+    .box:first-child {
+        background-color: $bg-color-base;
+    }
+    .box:nth-child(2) {
+        background-color: $bg-color-important;
+    }
+    .box:last-child {
+        background-color: $bg-color-main;
     }
 }
 

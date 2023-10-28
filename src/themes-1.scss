@@ -1,18 +1,7 @@
-@import "variables.scss";
-
-.exercise-2 {     
-    .box {
-        font-family: $font-familiy-variation-1;
-        box-shadow: $box-shadow-variation-1;
-    }
-
-    .box:first-child {
-        background-color: $bg-color-base-1;
-    }
-    .box:nth-child(2) {
-        background-color: $bg-color-important-1;
-    }
-    .box:last-child {
-        background-color: $bg-color-main-1;
-    }
-}
+$bg-color-base: #ff0000;
+$bg-color-important: #800000;
+$bg-color-main: #fa8072;
+$color-variant: #000;
+$font-familiy-variation: Verdana, Geneva, Tahoma, sans-serif;
+$border-radius-variation: 0px;
+$box-shadow-variation: -7px 5px 10px 1px;

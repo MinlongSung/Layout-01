@@ -1,20 +1,7 @@
-@import "variables.scss";
-
-.exercise-2 {
-    .box {
-        color: $color-variant-2;
-        font-family: $font-familiy-variation-2;
-        border-radius: $border-radius-variation-2;
-        box-shadow: $box-shadow-variation-2;
-    }
-
-    .box:first-child {
-        background-color: $bg-color-base-2;
-    }
-    .box:nth-child(2) {
-        background-color: $bg-color-important-2;
-    }
-    .box:last-child {
-        background-color: $bg-color-main-2;
-    }
-}
+$bg-color-base: #0000ff;
+$bg-color-important: #020281;
+$bg-color-main: #20b2aa;
+$color-variant: #fff;
+$font-familiy-variation: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+$border-radius-variation: 5px;
+$box-shadow-variation: 7px 5px 10px 1px #000;
