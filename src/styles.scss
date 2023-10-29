@@ -45,6 +45,7 @@ body {
 
 
 .exercise-1 {
+    //* My version
     // Classes for extend
     .default-container {
         height: 90px;
@@ -101,6 +102,50 @@ body {
             }
         }
     }
+
+    //_____________________________
+
+    //* Different approach example
+    // $colors: $gradient-bg-color-1, $gradient-bg-color-2, $gradient-bg-color-3;
+    
+    // [class*=container] {
+    //     height: 90px;
+    //     display: flex;
+    //     justify-content: space-between;
+    //     gap: 10px;
+    //     padding: 10px;
+    // }
+
+    // .box[class*="color-base"] {
+    //     flex-basis: 85px;
+    // }
+
+    // .box {
+    //     flex: 1 0 50px;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     padding: 10px;
+    //     border-radius: 5px;
+    // }
+    
+
+    // @for $k from 1 through length($colors) {
+    //     $color: nth($colors, $k);
+
+    //     @for $i from 1 through $gradient-n-variations {
+    //         .color-base#{$k} {
+    //             background-color: $color;
+    //         }
+    //         .darken-#{$i}-color-base#{$k} {
+    //             background-color: darken($color, $i * $gradient-pc-multiplier);
+    //         }
+    
+    //         .lighten-#{$i}-color-base#{$k} {
+    //             background-color: lighten($color, $i * $gradient-pc-multiplier);
+    //         }
+    //     }
+    // }
 }
 
 .exercise-2 {
